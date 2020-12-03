@@ -1,0 +1,9 @@
+﻿  main.cpp
+D:\大作业\LOL\main.cpp(30,50): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\大作业\LOL\main.cpp(30,34): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\大作业\LOL\main.cpp(30,23): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\大作业\LOL\main.cpp(30,17): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\大作业\LOL\main.cpp(42,6): warning C4551: 缺少参数列表的函数调用
+D:\大作业\LOL\main.cpp(49,14): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+D:\大作业\LOL\main.cpp(50,14): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  LOL.vcxproj -> D:\大作业\LOL\Debug\LOL.exe
