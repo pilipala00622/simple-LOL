@@ -14,7 +14,7 @@ float ez_vx, ez_vy; //分速度
 float x, y; //坐标之差
 float ezsin, ezcos;
 
-float ez_v = 10;
+float ez_v = 1.5;
 
 void StartUp()
 {
@@ -22,6 +22,14 @@ void StartUp()
 	cleardevice();
 	setbkcolor(RGB(0, 255, 0));
 	BeginBatchDraw();
+}
+
+void Move()
+{
+		ez_vx = ez_v * ezcos;
+		ez_vy = ez_v * ezsin;
+		ez_x += ez_vx;
+		ez_y += ez_vy;
 }
 
 void Show()
@@ -33,27 +41,22 @@ void Show()
 
 void UpdateWithoutInput()
 {
-
+	
 }
 
 void UpdateWithInput()
 {
 	MOUSEMSG m;
-	if (MouseHit)
+	m = GetMouseMsg();
+	switch (m.uMsg)
 	{
-		m = GetMouseMsg();
-		if (m.uMsg == WM_LBUTTONDOWN)
-		{
+	case WM_LBUTTONDOWN:
 			x = m.x - ez_x;
 			y = m.y - ez_y;
 			ezcos = x / sqrt((x * x) + (y * y));
 			ezsin = y / sqrt((x * x) + (y * y));
-			ez_vx = ez_v * ezcos;
-			ez_vy = ez_v * ezsin;
-		}
+			break;
 	}
-	ez_x += ez_vx;
-	ez_y += ez_vy;
 }
 
 int main(void)
@@ -64,6 +67,7 @@ int main(void)
 		Show();
 		UpdateWithInput();
 		UpdateWithoutInput();
+		Move();
 	}
 	return 0;
 }

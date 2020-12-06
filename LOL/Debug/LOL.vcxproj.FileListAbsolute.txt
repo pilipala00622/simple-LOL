@@ -1,2 +1,4 @@
 D:\大作业\LOL\Debug\LOL.exe
 D:\大作业\LOL\Debug\LOL.pdb
+F:\simple-LOL\simple-LOL\LOL\Debug\LOL.exe
+F:\simple-LOL\simple-LOL\LOL\Debug\LOL.pdb
