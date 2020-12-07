@@ -8,13 +8,14 @@
 
 int ezWidth = 40;
 int ezHeight = 40;
-float ez_x = WIDTH / 2;
-float ez_y = HEIGHT / 2; 
-float ez_vx, ez_vy; //分速度
-float x, y; //坐标之差
-float ezsin, ezcos;
+double ez_x = WIDTH / 2;
+double ez_y = HEIGHT / 2;
+double ez_vx, ez_vy; //分速度
+double x, y, mx, my; //坐标之差，鼠标坐标
+double ezsin, ezcos;
+int is = 0;
 
-float ez_v = 1.5;
+double ez_v = 1.5;
 
 void StartUp()
 {
@@ -24,14 +25,6 @@ void StartUp()
 	BeginBatchDraw();
 }
 
-void Move()
-{
-		ez_vx = ez_v * ezcos;
-		ez_vy = ez_v * ezsin;
-		ez_x += ez_vx;
-		ez_y += ez_vy;
-}
-
 void Show()
 {
 	cleardevice();
@@ -39,23 +32,41 @@ void Show()
 	FlushBatchDraw();
 }
 
+void updata(double vx, double vy, double mx, double my)
+{
+	while (1)
+	{
+		ez_x += vx;
+		ez_y += vy;
+		Sleep(5);
+		Show();
+		if (sqrt((ez_x - mx) * (ez_x - mx) + (ez_y - my) * (ez_y - my)) <= 5)
+			break;
+	}
+}
+
 void UpdateWithoutInput()
 {
-	
 }
 
 void UpdateWithInput()
 {
 	MOUSEMSG m;
-	m = GetMouseMsg();
-	switch (m.uMsg)
+	if (MouseHit)
 	{
-	case WM_LBUTTONDOWN:
+		m = GetMouseMsg();
+		if (m.uMsg == WM_LBUTTONDOWN)
+		{
 			x = m.x - ez_x;
 			y = m.y - ez_y;
+			mx = m.x;
+			my = m.y;
 			ezcos = x / sqrt((x * x) + (y * y));
 			ezsin = y / sqrt((x * x) + (y * y));
-			break;
+			ez_vx = ez_v * ezcos;
+			ez_vy = ez_v * ezsin;
+			updata(ez_vx, ez_vy, mx, my);
+		}
 	}
 }
 
@@ -67,7 +78,6 @@ int main(void)
 		Show();
 		UpdateWithInput();
 		UpdateWithoutInput();
-		Move();
 	}
 	return 0;
 }

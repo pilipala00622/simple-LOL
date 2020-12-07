@@ -1,8 +1,1 @@
-﻿  main.cpp
-F:\simple-LOL\simple-LOL\LOL\main.cpp(38,50): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-F:\simple-LOL\simple-LOL\LOL\main.cpp(38,34): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-F:\simple-LOL\simple-LOL\LOL\main.cpp(38,23): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-F:\simple-LOL\simple-LOL\LOL\main.cpp(38,17): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-F:\simple-LOL\simple-LOL\LOL\main.cpp(56,14): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-F:\simple-LOL\simple-LOL\LOL\main.cpp(57,14): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-  LOL.vcxproj -> F:\simple-LOL\simple-LOL\LOL\Debug\LOL.exe
+﻿
